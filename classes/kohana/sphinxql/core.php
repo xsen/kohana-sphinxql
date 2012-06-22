@@ -33,7 +33,7 @@ class Kohana_SphinxQL_Core {
 	 */
 	public function __construct($profile='default', array $config=null) {
 		if ($config === null) { $config = array(); }
-		$config = Arr::merge(Kohana::config('sphinxql.'.$profile), $config);
+        $config = Arr::merge(Kohana::$config->load('sphinxql.'.$profile), $config);
 		foreach ($config['servers'] as $name => $server) { $this->add_server($name, $server); }
 	}
 
